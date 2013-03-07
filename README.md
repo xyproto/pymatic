@@ -1,3 +1,6 @@
+Description
+===========
+
 A Python library for automating other applications by wrapping xte.
 
 Requirements
