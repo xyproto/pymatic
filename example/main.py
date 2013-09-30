@@ -36,12 +36,12 @@ def test5():
     # login
     settings = Settings()
     sf = ScriptFiles("../scripts")
-    print "starting in the background..."
+    print("starting in the background...")
     sf.runscriptbyfirstname("startcgoban", settings)
-    print "started? alt tab now"
+    print("started? alt tab now")
     auto = Automation(settings)
     auto.alttab()
-    print "sending a click"
+    print("sending a click")
     emu = auto.getemu()
     emu.move(100, 500)
     emu.click()
@@ -50,7 +50,7 @@ def test5():
 def test6():
     settings = Settings()
     sf = ScriptFiles("../scripts")
-    print "Starting Cgoban..."
+    print("Starting Cgoban...")
     sf.runscriptbyfirstname("startcgoban_xvfb", settings)
     sf.runscriptbyfirstname("login", settings)
     sf.runscriptbyfirstname("killxvfb", settings)

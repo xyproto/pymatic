@@ -5,7 +5,7 @@
 # More elaborate GUI-operations
 # Supporting the AutoIT syntax would be nice
 
-from interact import Emulate, Screen
+from .interact import Emulate, Screen
 import os
 
 class ScriptFiles:
@@ -20,14 +20,14 @@ class ScriptFiles:
         try:
             return filename[::-1].split(".", 1)[1][::-1]
         except IndexError:
-            print("Filename does not have a first name:", filename)
+            print("Filename does not have a first name: " + filename)
             return filename
 
     def lastname(self, filename):
         try:
             return filename[::-1].split(".", 1)[0][::-1]
         except IndexError:
-            print("Filename does not have a last name:", filename)
+            print("Filename does not have a last name: " + filename)
             return filename
 
     def listscripts(self):
@@ -137,8 +137,8 @@ class GenericInterpreter:
         # call the corresponding function with the given arguments
         try:
             return self.fdict[fun].__call__(*arguments)
-        except KeyError, e:
-            print("There is no such function:", e)
+        except KeyError as e:
+            print("There is no such function: " + str(e))
             return ""
 
     def run_this(self, script):
@@ -233,7 +233,7 @@ class AutoItInterpreter(GenericInterpreter):
             # warning
             retval = self.warning_msgbox(message, title)
         else:
-            print("MsgBox, unknown flag:", flag)
+            print("MsgBox, unknown flag: " + str(flag))
         # translation to AutoIt return values
         if retval == 256:
             retval = 2
