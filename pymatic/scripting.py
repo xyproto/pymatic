@@ -5,7 +5,7 @@
 # More elaborate GUI-operations
 # Supporting the AutoIT syntax would be nice
 
-from lib.interact import Emulate, Screen
+from interact import Emulate, Screen
 import os
 
 class ScriptFiles:
