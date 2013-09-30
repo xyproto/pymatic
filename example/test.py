@@ -3,7 +3,7 @@
 #vim: set enc=utf8:
 
 import unittest
-from lib.interact import Emulate
+from pymatic.interact import Emulate
 import time
 
 class TestInteract(unittest.TestCase):
