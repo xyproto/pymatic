@@ -19,7 +19,7 @@ class Emulate:
         """Direct interaction with xte"""
         # How much should we wait after each command, in milliseconds
         self._guisleep = float(guidelay) / 1000.0
-        print "Starting XTE..."
+        print("Starting XTE...")
         options = []
         if display:
             options.append("-x " + display)
@@ -38,7 +38,7 @@ class Emulate:
 
     def cmd(self, cmd):
         """Execute a single xte command."""
-        print "==> " + cmd
+        print("==> " + cmd)
         self.xte.write(cmd + "\n")
         self.flush()
         time.sleep(self._guisleep)

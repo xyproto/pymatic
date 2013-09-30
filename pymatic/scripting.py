@@ -20,14 +20,14 @@ class ScriptFiles:
         try:
             return filename[::-1].split(".", 1)[1][::-1]
         except IndexError:
-            print "Filename does not have a first name:", filename
+            print("Filename does not have a first name:", filename)
             return filename
 
     def lastname(self, filename):
         try:
             return filename[::-1].split(".", 1)[0][::-1]
         except IndexError:
-            print "Filename does not have a last name:", filename
+            print("Filename does not have a last name:", filename)
             return filename
 
     def listscripts(self):
@@ -50,9 +50,9 @@ class ScriptFiles:
             interp = AutoItInterpreter(settings)
         else:
             if not script:
-                print "Could not find any contents for that script"
+                print("Could not find any contents for that script")
             else:
-                print "Could not find an interpreter for that extension"
+                print("Could not find an interpreter for that extension")
             return
         interp.run_this(script)
         interp.close()
@@ -138,7 +138,7 @@ class GenericInterpreter:
         try:
             return self.fdict[fun].__call__(*arguments)
         except KeyError, e:
-            print "There is no such function:", e
+            print("There is no such function:", e)
             return ""
 
     def run_this(self, script):
@@ -178,7 +178,7 @@ class NaiveInterpreter(GenericInterpreter):
         return self.info_msgbox(message, title)
 
     def run(self, cmd):
-        print "Running %s..." % (cmd)
+        print("Running %s..." % (cmd))
         os.system(cmd)
 
     def sleep(self, n):
@@ -188,7 +188,7 @@ class NaiveInterpreter(GenericInterpreter):
         self.emu.clickat(int(x), int(y))
 
     def printfun(self, msg):
-        print msg
+        print(msg)
 
     def screenshot(self, filename="screenshot.png"):
         fn = "../screenshots/" + filename
@@ -233,7 +233,7 @@ class AutoItInterpreter(GenericInterpreter):
             # warning
             retval = self.warning_msgbox(message, title)
         else:
-            print "MsgBox, unknown flag:", flag
+            print("MsgBox, unknown flag:", flag)
         # translation to AutoIt return values
         if retval == 256:
             retval = 2
