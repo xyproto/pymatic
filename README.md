@@ -1,7 +1,7 @@
 Description
 ===========
 
-A Python library for automating other applications by wrapping xte.
+Python library for automating other applications by wrapping xte.
 
 Requirements
 ============
